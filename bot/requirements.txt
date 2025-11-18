@@ -9,3 +9,4 @@ pillow
 yt_dlp
 deep-translator
 google
+edge_tts
