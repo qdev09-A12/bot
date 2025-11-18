@@ -13,4 +13,5 @@ edge_tts
 pycryptodome
 protobuf
 schedule
+flask
 
