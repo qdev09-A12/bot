@@ -6,3 +6,6 @@ pytz
 gTTS
 qrcode
 pillow
+yt_dlp
+deep-translator
+google
