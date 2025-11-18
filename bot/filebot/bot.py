@@ -61,6 +61,32 @@ cooldown_dict = {}
 allowed_users = []
 muted_users = {}
 
+# ================================
+# LỆNH /vidgai — LẤY LOGIC TỪ video_kinh_di.py
+# ================================
+VIDEO_FILE_GAI = "videos.json"
+
+def load_videos_gai():
+    try:
+        with open(VIDEO_FILE_GAI, "r") as f:
+            return json.load(f)
+    except:
+        return []
+
+videos_gai = load_videos_gai()
+
+@bot.message_handler(commands=["gaixinh"])
+def send_video_gai(message):
+    if len(videos_gai) == 0:
+        return bot.reply_to(message, "⚠️ Hiện chưa có video nào!")
+
+    file_id = random.choice(videos_gai)
+    bot.send_video(
+        message.chat.id,
+        file_id,
+        caption="📌 Video Gái Xinh Nè 😘\n\n⚠️ Nhớ giữ tâm hồn trong sáng!"
+    )
+
 
 def get_time_vietnam():
     return datetime.now().strftime("%Y-%m-%dT%H:%M:%S")
@@ -1249,7 +1275,7 @@ Xin Chào: <a href='tg://user?id={user_id}'>{user_name}</a>
 📧 /reg — Email ảo  
 🌤 /thoitiet — Dự báo thời tiết  
 🎵 /tiktok — Tải TikTok  
-🍑 /videogai — Video gái  
+🍑 /gaixinh — Video gái  
 🎭 /nglink — Spam nglink  
 🌐 /code — Lấy source Web  
 🎙 /voice — Chuyển văn bản thành giọng  
@@ -4047,3 +4073,4 @@ def react_to_command(message):
 if __name__ == "__main__":
     bot_active = True
     bot.infinity_polling()
+
