@@ -11,3 +11,5 @@ deep-translator
 google
 edge_tts
 pycryptodome
+protobuf
+
