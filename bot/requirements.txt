@@ -12,4 +12,5 @@ google
 edge_tts
 pycryptodome
 protobuf
+schedule
 
